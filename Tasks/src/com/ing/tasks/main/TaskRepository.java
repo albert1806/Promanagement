@@ -18,6 +18,12 @@ public class TaskRepository {
 		nbOfTasks = 0;
 	}
 
+	/**
+	 * @param t a {@link Task} to add to repo, MUST NOT BE NULL
+	 * @throws TaskRepositoryException if general error occurs
+	 * @throws AddTaskException when task null
+	 */
+	//@deprecated Please use <b>"add()"</b> next time!;
 	public void addTask(Task t) throws TaskRepositoryException {
 		if (t == null) {
 			 throw new AddTaskException(t);

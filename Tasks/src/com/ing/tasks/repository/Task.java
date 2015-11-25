@@ -5,6 +5,10 @@ package com.ing.tasks.repository;
  *
  */
 public class Task {
+	/**
+	 * <i>Asta este clasa super a tuturor taskurilor</i><br/>
+	 * <b>ceva bla bla </b>
+	 */
 	protected String name;
 	protected String description;
 	@SuppressWarnings("unused")
