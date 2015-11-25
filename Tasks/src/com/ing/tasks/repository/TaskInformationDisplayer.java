@@ -16,14 +16,14 @@ public class TaskInformationDisplayer {
 		System.out.println(theTask);
 	}
 	
-	private static void totalTasks(InMemoryTaskRepository repo){
+	private static void totalTasks(TaskRepository repo){
 		StringBuilder sb = new StringBuilder();
 		String message = repo.getNbOfTasks() + " tasks today!";
 
 		System.out.println(sb.append("Hy, Albert! ").append(message).append("\n"));
 	}
 	
-	public static void printTasks(final InMemoryTaskRepository repo) {
+	public static void printTasks(final TaskRepository repo) {
 
 		if (repo == null) {
 			System.out.println("No repository!");

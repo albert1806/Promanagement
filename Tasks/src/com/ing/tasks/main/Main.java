@@ -3,14 +3,16 @@ package com.ing.tasks.main;
 import java.util.Date;
 
 import com.ing.tasks.repository.AddTaskException;
-import com.ing.tasks.repository.InMemoryTaskRepository;
 import com.ing.tasks.repository.Meeting;
 import com.ing.tasks.repository.Person;
 import com.ing.tasks.repository.PhoneCall;
+import com.ing.tasks.repository.RepositoryFactory;
 import com.ing.tasks.repository.Schedule;
 import com.ing.tasks.repository.Task;
 import com.ing.tasks.repository.TaskInformationDisplayer;
+import com.ing.tasks.repository.TaskRepository;
 import com.ing.tasks.repository.TaskRepositoryException;
+import com.ing.tasks.repository.deprecated.RepositoryFactory2;
 
 /**
  * @author Albert
@@ -19,7 +21,7 @@ import com.ing.tasks.repository.TaskRepositoryException;
 public class Main {
 
 	public static void main(String[] args) {
-		InMemoryTaskRepository repo = new InMemoryTaskRepository();
+		TaskRepository  repo = RepositoryFactory.IN_MEMORY_TASK_REPOSITORY.createRepository();
 		TaskInformationDisplayer.printTasks(repo);
 
 		try {
@@ -37,10 +39,6 @@ public class Main {
 			System.exit(-1);
 		}
 
-		try {
-			TaskInformationDisplayer.printTasks((InMemoryTaskRepository)repo.clone());
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
+		TaskInformationDisplayer.printTasks(repo);
 	}
 }

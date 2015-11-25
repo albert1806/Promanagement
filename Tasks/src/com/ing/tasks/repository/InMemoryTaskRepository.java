@@ -8,7 +8,7 @@ import java.util.List;
  * @author Albert
  *
  */
-public class InMemoryTaskRepository implements Cloneable {
+public class InMemoryTaskRepository implements Cloneable, TaskRepository {
 
 	private List<Task> theTasks;
 	
@@ -16,39 +16,25 @@ public class InMemoryTaskRepository implements Cloneable {
 		theTasks = new LinkedList<>();
 	}
 
-	/**
-	 * @return the nbOfTasks
-	 */
 	public int getNbOfTasks() {
 		return theTasks.size();
 	}
 
-	/**
-	 * @return the theTasks
-	 */
 	public List<Task> getTheTasks() {
 		return Collections.unmodifiableList(theTasks);
 	}
 
-	/**
-	 * Retrieve a Task at specified index if available
-	 * @param index a numeric index of the list of tasks; must be between <b>[0 ; {@link #getNbOfTasks()})</b>
-	 * @return a {@link Task} that cannot be null
-	 * @throws TaskRepositoryException
-	 */
-	public Task getTheTasks(int index) throws TaskRepositoryException {
+	public Task readTask(String name) throws TaskRepositoryException {
+		
+		Task t = new Task(name, null);
+		int index = theTasks.indexOf(t);
+		
 		if (index < 0 || index >= theTasks.size()) {
 			throw new TaskRepositoryException(null);
 		}
 		return theTasks.get(index);
 	}
 
-	/**
-	 * @param t a {@link Task} to add to repo, MUST NOT BE NULL
-	 * @throws TaskRepositoryExceptionif general error occurs
-	 * @throws AddTaskException
-	 *             when task null
-	 */
 	// @deprecated Please use <b>"add()"</b> next time!;
 	public void addTask(Task t) throws TaskRepositoryException {
 		if (t == null) {
@@ -61,25 +47,16 @@ public class InMemoryTaskRepository implements Cloneable {
 		theTasks.remove(t);
 	}
 	
-//	@Override
-//	public String toString() {
-//		StringBuilder sb = new StringBuilder();
-//		String message = getNbOfTasks() + " tasks today!";
-//
-//		sb.append("Hy, Albert! ").append(message).append("\n");
-//
-//		for (Task t : theTasks) {
-//			sb.append(t).append("\n");
-//		}
-//		return sb.toString();
-//	}
-
-	// Nu e folosit pentru ca am ales alta metoda mai putin consumatoare de
-	// memorie a.k.a. getter pt completed
+	@Override
+	public void updateTask(Task t) {
+		//Do nothing;
+	}
 	
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 		// FIXME deep clone the child task!;
 	}
+
+	
 }
