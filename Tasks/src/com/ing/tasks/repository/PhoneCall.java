@@ -17,6 +17,6 @@ public class PhoneCall extends Schedule {
 
 	@Override
 	public String toString() {
-		return name + description + date + person;
+		return super.getName() + super.getDescription() + date + person;
 	}
 }

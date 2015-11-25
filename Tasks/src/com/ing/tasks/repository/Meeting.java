@@ -24,6 +24,6 @@ public class Meeting extends Schedule {
 	
 	@Override
 	public String toString(){
-		return name + description + person + place + date;
+		return super.getName() + super.getDescription() + person + place + date;
 	}
 }

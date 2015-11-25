@@ -22,6 +22,6 @@ public class Schedule extends Task {
 	
 	@Override
 	public String toString(){
-		return name + description + date;
+		return super.getName() + super.getDescription() + date;
 	}
 }
