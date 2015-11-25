@@ -1,0 +1,3 @@
+/Promanagement/
+/JavaBasicMedium21-11/
+/eclipse/
