@@ -12,7 +12,6 @@ import com.ing.tasks.repository.Task;
 import com.ing.tasks.repository.TaskInformationDisplayer;
 import com.ing.tasks.repository.TaskRepository;
 import com.ing.tasks.repository.TaskRepositoryException;
-import com.ing.tasks.repository.deprecated.RepositoryFactory2;
 
 /**
  * @author Albert
@@ -21,7 +20,9 @@ import com.ing.tasks.repository.deprecated.RepositoryFactory2;
 public class Main {
 
 	public static void main(String[] args) {
-		TaskRepository  repo = RepositoryFactory.IN_MEMORY_TASK_REPOSITORY.createRepository();
+		int type = RepositoryFactory.TYPE_MEMORY;
+		System.out.println("Creating repo of type: " + type);
+		TaskRepository  repo = RepositoryFactory.instance().createRepository(type);
 		TaskInformationDisplayer.printTasks(repo);
 
 		try {

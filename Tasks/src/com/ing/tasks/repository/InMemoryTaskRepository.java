@@ -55,7 +55,7 @@ public class InMemoryTaskRepository implements Cloneable, TaskRepository {
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
-		// FIXME deep clone the child task!;
+//		Needed todo deepclone, not needed eanymore because we use generics
 	}
 
 	

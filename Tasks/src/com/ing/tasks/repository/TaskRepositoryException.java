@@ -4,6 +4,7 @@ package com.ing.tasks.repository;
  * @author Albert
  *
  */
+@SuppressWarnings("serial")
 public class TaskRepositoryException extends Exception{
 	
 	private Task failedTask;

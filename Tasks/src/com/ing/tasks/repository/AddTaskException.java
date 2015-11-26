@@ -1,5 +1,6 @@
 package com.ing.tasks.repository;
 
+@SuppressWarnings("serial")
 public class AddTaskException extends TaskRepositoryException {
 
 	public AddTaskException(Task failedTask) {
