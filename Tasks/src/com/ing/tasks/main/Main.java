@@ -7,11 +7,15 @@ import com.ing.tasks.repository.Meeting;
 import com.ing.tasks.repository.Person;
 import com.ing.tasks.repository.PhoneCall;
 import com.ing.tasks.repository.RepositoryFactory;
+import com.ing.tasks.repository.RepositoryFactory.RepoType;
 import com.ing.tasks.repository.Schedule;
 import com.ing.tasks.repository.Task;
 import com.ing.tasks.repository.TaskInformationDisplayer;
 import com.ing.tasks.repository.TaskRepository;
 import com.ing.tasks.repository.TaskRepositoryException;
+
+import static com.ing.tasks.repository.RepositoryFactory.RepoType.*; //Enum in interiorul RepositoryFactory
+//static importa campurile statice si nu e nev sa mai facem RepoType.blabla
 
 /**
  * @author Albert
@@ -20,7 +24,7 @@ import com.ing.tasks.repository.TaskRepositoryException;
 public class Main {
 
 	public static void main(String[] args) {
-		int type = RepositoryFactory.TYPE_MEMORY;
+		RepoType type = TYPE_MEMORY;
 		System.out.println("Creating repo of type: " + type);
 		TaskRepository  repo = RepositoryFactory.instance().createRepository(type);
 		TaskInformationDisplayer.printTasks(repo);

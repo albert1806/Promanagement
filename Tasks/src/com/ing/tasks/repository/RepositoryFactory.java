@@ -1,41 +1,36 @@
 package com.ing.tasks.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Create object of type {@link TaskRepository}
  * 
  * @author Albert
  */
 public class RepositoryFactory {
-
-	private static final InMemoryTaskRepository IN_MEMORY_TASK_REPOSITORY = new InMemoryTaskRepository();
-	private static final FileTaskRepository FILE_TASK_REPOSITORY = new FileTaskRepository();
-	private static final DBTaskRepository DB_TASK_REPOSITORY = new DBTaskRepository();
-
-	private static RepositoryFactory theInstance = new RepositoryFactory();
-
-	public static final int TYPE_MEMORY = 0;
-	public static final int TYPE_FILE = 1;
-	public static final int TYPE_DB = 2;
-
-	private RepositoryFactory() {
-
+	
+	public enum RepoType {
+		TYPE_MEMORY,
+		TYPE_FILE,
+		TYPE_DB;
 	}
 
-	public TaskRepository createRepository(int type) {
-		switch (type) {
-		case 0:
-			return IN_MEMORY_TASK_REPOSITORY;
-		case 1:
-			return FILE_TASK_REPOSITORY;
-		case 2:
-			return DB_TASK_REPOSITORY;
-		default:
-			return IN_MEMORY_TASK_REPOSITORY; // TODO throw exception
-		}
+	private  Map<RepoType, TaskRepository> repos = new HashMap<>();
+	
+	private static RepositoryFactory theInstance = new RepositoryFactory();
+
+	private RepositoryFactory() {
+		repos.put(RepoType.TYPE_MEMORY, new InMemoryTaskRepository());
+		repos.put(RepoType.TYPE_FILE, new FileTaskRepository());
+		repos.put(RepoType.TYPE_DB, new DBTaskRepository());
+	}
+
+	public TaskRepository createRepository(RepoType type) {
+		return repos.get(type);
 	}
 
 	public static RepositoryFactory instance() {
-
 		return theInstance;
 	}
 
