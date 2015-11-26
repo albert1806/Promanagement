@@ -18,6 +18,9 @@ public class Person implements Serializable {
 	/** The age. */
 	private int age;
 	
+	public Person(){
+		
+	}
 	/**
 	 * Instantiates a new person.
 	 *

@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public class Task implements Cloneable, Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	/** <i>Asta este clasa super a tuturor taskurilor</i><br/> <b>ceva bla bla </b>. */
 	private String name;
 	
@@ -73,7 +75,7 @@ public class Task implements Cloneable, Serializable {
 		// this("","");
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -81,7 +83,7 @@ public class Task implements Cloneable, Serializable {
 		return name + description;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
@@ -89,7 +91,7 @@ public class Task implements Cloneable, Serializable {
 		return super.clone();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -100,7 +102,7 @@ public class Task implements Cloneable, Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
