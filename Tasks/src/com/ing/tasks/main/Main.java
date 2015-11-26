@@ -18,16 +18,22 @@ import static com.ing.tasks.repository.RepositoryFactory.RepoType.*; //Enum in i
 //static importa campurile statice si nu e nev sa mai facem RepoType.blabla
 
 /**
- * @author Albert
+ * The Class Main.
  *
+ * @author Albert
  */
 public class Main {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
-		RepoType type = TYPE_MEMORY;
+		RepoType type = TYPE_FILE;
 		System.out.println("Creating repo of type: " + type);
 		TaskRepository  repo = RepositoryFactory.instance().createRepository(type);
-		TaskInformationDisplayer.printTasks(repo);
+//		TaskInformationDisplayer.printTasks(repo);
 
 		try {
 			repo.addTask(new Task("Factura de platit", " la Enel"));

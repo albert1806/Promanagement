@@ -6,12 +6,17 @@ package com.ing.tasks.repository;
 import java.util.List;
 
 /**
- * @author Studenr
+ * The Class DBTaskRepository.
  *
+ * @author Studenr
  */
 public class DBTaskRepository implements TaskRepository {
 
-	/** Add task to DB
+	/**
+	 *  Add task to DB.
+	 *
+	 * @param t the t
+	 * @throws TaskRepositoryException the task repository exception
 	 * @see com.ing.tasks.repository.TaskRepository#addTask(com.ing.tasks.repository.Task)
 	 */
 	@Override
@@ -21,6 +26,9 @@ public class DBTaskRepository implements TaskRepository {
 	}
 
 	/**
+	 * Removes the task.
+	 *
+	 * @param t the t
 	 * @see com.ing.tasks.repository.TaskRepository#removeTask(com.ing.tasks.repository.Task)
 	 */
 	@Override
@@ -30,6 +38,9 @@ public class DBTaskRepository implements TaskRepository {
 	}
 
 	/**
+	 * Gets the the tasks.
+	 *
+	 * @return the the tasks
 	 * @see com.ing.tasks.repository.TaskRepository#getTheTasks()
 	 */
 	@Override
@@ -39,6 +50,11 @@ public class DBTaskRepository implements TaskRepository {
 	}
 
 	/**
+	 * Read task.
+	 *
+	 * @param name the name
+	 * @return the task
+	 * @throws TaskRepositoryException the task repository exception
 	 * @see com.ing.tasks.repository.TaskRepository#readTask(java.lang.String)
 	 */
 	@Override
@@ -48,6 +64,9 @@ public class DBTaskRepository implements TaskRepository {
 	}
 
 	/**
+	 * Gets the nb of tasks.
+	 *
+	 * @return the nb of tasks
 	 * @see com.ing.tasks.repository.TaskRepository#getNbOfTasks()
 	 */
 	@Override
@@ -57,6 +76,9 @@ public class DBTaskRepository implements TaskRepository {
 	}
 
 	/**
+	 * Update task.
+	 *
+	 * @param t the t
 	 * @see com.ing.tasks.repository.TaskRepository#updateTask(com.ing.tasks.repository.Task)
 	 */
 	@Override

@@ -1,10 +1,15 @@
 package com.ing.tasks.repository;
 
 
+/**
+ * The Class TaskInformationDisplayer.
+ */
 public class TaskInformationDisplayer {
 	
 	/**
-	 * @param theTask
+	 * Display single task.
+	 *
+	 * @param theTask the the task
 	 */
 	private static void displaySingleTask(Task theTask) {
 		 System.out.print(theTask.isCompleted() ? "Done! " : "ToDo! ");
@@ -16,6 +21,11 @@ public class TaskInformationDisplayer {
 		System.out.println(theTask);
 	}
 	
+	/**
+	 * Total tasks.
+	 *
+	 * @param repo the repo
+	 */
 	private static void totalTasks(TaskRepository repo){
 		StringBuilder sb = new StringBuilder();
 		String message = repo.getNbOfTasks() + " tasks today!";
@@ -23,6 +33,11 @@ public class TaskInformationDisplayer {
 		System.out.println(sb.append("Hy, Albert! ").append(message).append("\n"));
 	}
 	
+	/**
+	 * Prints the tasks.
+	 *
+	 * @param repo the repo
+	 */
 	public static void printTasks(final TaskRepository repo) {
 
 		if (repo == null) {
