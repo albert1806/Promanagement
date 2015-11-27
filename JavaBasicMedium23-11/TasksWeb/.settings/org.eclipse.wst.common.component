@@ -2,6 +2,12 @@
     <wb-module deploy-name="TasksWeb">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="Tasks.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Tasks/Tasks">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hsqldb.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/Tasks/lib/hsqldb.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="TasksWeb"/>
         <property name="java-output-path" value="/TasksWeb/build/classes"/>
     </wb-module>

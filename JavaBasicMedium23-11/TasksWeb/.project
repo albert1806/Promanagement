@@ -3,6 +3,7 @@
 	<name>TasksWeb</name>
 	<comment></comment>
 	<projects>
+		<project>Tasks</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
