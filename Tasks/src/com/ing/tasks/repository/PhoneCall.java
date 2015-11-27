@@ -6,11 +6,20 @@ import java.util.Date;
 /**
  * The Class PhoneCall.
  */
-public class PhoneCall extends Schedule{
+public class PhoneCall extends Schedule implements Runnable{
 	
 	/** The person. */
 	public Person person;
 	
+	private boolean callFinished;
+	
+	/**
+	 * @return the callFinished
+	 */
+	public boolean isCallFinished() {
+		return callFinished;
+	}
+
 	/**
 	 * Instantiates a new phone call.
 	 */
@@ -32,11 +41,33 @@ public class PhoneCall extends Schedule{
 		this.person = person;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.ing.tasks.repository.Schedule#toString()
-	 */
+	/**
+	* @see com.ing.tasks.repository.Schedule#toString()
+	*/
 	@Override
 	public String toString() {
 		return super.getName() + super.getDescription() + date + person;
+	}
+
+	
+	@Override
+	public void run() {
+		
+		callFinished = false;
+		
+		if(person == null){
+			System.out.println("No one to call");
+			return;
+		}
+		for(int i=0; i<=5; i++){
+			System.out.println("Calling " + person.name + "at number: " + person.phone);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		callFinished = true;
 	}
 }

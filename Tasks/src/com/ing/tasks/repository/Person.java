@@ -10,10 +10,10 @@ import java.io.Serializable;
 public class Person implements Serializable {
 
 	/** The name. */
-	private String name;
+	String name;
 	
 	/** The phone. */
-	private String phone;
+	String phone;
 	
 	/** The age. */
 	private int age;
