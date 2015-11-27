@@ -17,6 +17,13 @@ public class Task implements Cloneable, Serializable {
 	/** The description. */
 	private String description;
 	
+	/**
+	 * @param completed the completed to set
+	 */
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+
 	/** The completed. */
 	private boolean completed;
 
