@@ -30,17 +30,26 @@ public class Main {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		RepoType type = TYPE_FILE;
+		RepoType type = TYPE_MEMORY;
 		System.out.println("Creating repo of type: " + type);
 		TaskRepository  repo = RepositoryFactory.instance().createRepository(type);
-//		TaskInformationDisplayer.printTasks(repo);
+		TaskInformationDisplayer.printTasks(repo);
 
 		try {
 			repo.addTask(new Task("Factura de platit", " la Enel"));
 			repo.addTask(new Schedule("La o bere ", " Beraria H ", new Date()));
 			repo.addTask(new Meeting("Aquamarin ", " Planning ", new Date()," ING Crystal Tower ", new Person(" Mihai ", "323232", 21)));
-			repo.addTask(new PhoneCall("Meeting ", " reminder pentru maine ",new Date(), new Person(" Vlad ", "0720092075", 21)));
-//			repo.addTask(null);
+			PhoneCall theCall = new PhoneCall("Call ", " reminder sa il suni ",new Date(), new Person(" Vlad ", "0720092075", 21));
+			repo.addTask(theCall);
+			
+			Thread callThread = new Thread(theCall,"Caller Thread");
+			callThread.start();
+			try {
+				callThread.join();// or join(123) care asteapta maxim 123 dupa thread
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finished calling: " + theCall.isCallFinished());
 			
 		} catch (AddTaskException e) {
 			e.printStackTrace();

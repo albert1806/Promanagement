@@ -62,7 +62,7 @@ public class PhoneCall extends Schedule implements Runnable{
 		for(int i=0; i<=5; i++){
 			System.out.println("Calling " + person.name + "at number: " + person.phone);
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
