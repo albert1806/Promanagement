@@ -87,7 +87,7 @@ public class Task implements Cloneable, Serializable {
 	 */
 	@Override
 	public String toString() {
-		return name + description;
+		return "Name: " + name + " Description: " + description + " Completed: " + isCompleted();
 	}
 
 	/**
